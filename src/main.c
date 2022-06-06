@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include "includes.h"
 
 int main()
 {
-    printf("Hello, World!\n");
+    cpu_init();
     return 0;
 }
