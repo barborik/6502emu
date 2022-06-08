@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#include "cpu.h"
 #include "ins.h"
+#include "cpu.h"
 
 #endif

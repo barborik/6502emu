@@ -4,7 +4,7 @@
 void cpu_init();
 void cpu_exec(int8_t opcode);
 
-enum
+enum // addressing modes
 {
     AM_ACC,  // OPC A
     AM_ABS,  // OPC $LLHH
@@ -34,7 +34,7 @@ static const ins_t inset[] = {
         .bytes = 1,
         .opcode = 0x00,
         .addrmode = AM_IMPL,
-        //.exec =,
+        .exec = ix00,
     },
 };
 
