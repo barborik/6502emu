@@ -144,14 +144,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="Makefile" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\cpu.c" />
+    <ClCompile Include="src\defs.c" />
+    <ClCompile Include="src\ins2.c" />
+    <ClCompile Include="src\ins3.c" />
+    <ClCompile Include="src\ins1.c" />
+    <ClCompile Include="src\ins4.c" />
+    <ClCompile Include="src\inset.c" />
     <ClCompile Include="src\main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\cpu.h" />
+    <ClInclude Include="src\defs.h" />
+    <ClInclude Include="src\includes.h" />
+    <ClInclude Include="src\ins.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,11 @@
 #include "includes.h"
 
-int main()
+int main(int argc, char* argv[])
 {
-    cpu_init();
-    return 0;
+	flags();
+
+	cpu_init();
+	cpu_load();
+	cpu_exec();
+	return 0;
 }

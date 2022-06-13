@@ -1,187 +1,248 @@
 #ifndef __INS
 #define __INS
 
+// by name
+extern void LDA(int8_t op);
+extern void LDX(int8_t op);
+extern void LDY(int8_t op);
+extern void STA(int16_t op);
+extern void STX(int16_t op);
+extern void STY(int16_t op);
+extern void TAX();
+extern void TAY();
+extern void TSX();
+extern void TXA();
+extern void TXS();
+extern void TYA();
+extern void PHA();
+extern void PHP();
+extern void PLA();
+extern void PLP();
+extern void DEC(int16_t op);
+extern void DEX();
+extern void DEY();
+extern void INC(int16_t op);
+extern void INX();
+extern void INY();
+extern void ADC(int8_t op);
+extern void SBC(int8_t op);
+extern void AND(int8_t op);
+extern void EOR(int8_t op);
+extern void ORA(int8_t op);
+extern void ASL(int8_t op);
+extern void LSR(int8_t op);
+extern void ROL(int8_t op);
+extern void ROR(int8_t op);
+extern void CLC();
+extern void CLD();
+extern void CLI();
+extern void CLV();
+extern void SEC();
+extern void SED();
+extern void SEI();
+extern void CMP(int8_t op);
+extern void CPX(int8_t op);
+extern void CPY(int8_t op);
+extern void BCC(int8_t op);
+extern void BCS(int8_t op);
+extern void BEQ(int8_t op);
+extern void BMI(int8_t op);
+extern void BNE(int8_t op);
+extern void BPL(int8_t op);
+extern void BVC(int8_t op);
+extern void BVS(int8_t op);
+extern void JMP(int16_t op);
+extern void JSR(int16_t op);
+extern void RTS();
+extern void BRK();
+extern void RTI();
+extern void BIT(int8_t op);
+extern void NOP();
+
 // high 0
-static void ix00();
-static void ix01();
-static void ix05();
-static void ix06();
-static void ix08();
-static void ix09();
-static void ix0a();
-static void ix0d();
-static void ix0e();
+extern void ix00();
+extern void ix01();
+extern void ix05();
+extern void ix06();
+extern void ix08();
+extern void ix09();
+extern void ix0a();
+extern void ix0d();
+extern void ix0e();
 
 // high 1
-static void ix10();
-static void ix11();
-static void ix15();
-static void ix16();
-static void ix18();
-static void ix19();
-static void ix1d();
-static void ix1e();
+extern void ix10();
+extern void ix11();
+extern void ix15();
+extern void ix16();
+extern void ix18();
+extern void ix19();
+extern void ix1d();
+extern void ix1e();
 
 // high 2
-static void ix20();
-static void ix21();
-static void ix24();
-static void ix25();
-static void ix26();
-static void ix28();
-static void ix29();
-static void ix2a();
-static void ix2c();
-static void ix2d();
-static void ix2e();
+extern void ix20();
+extern void ix21();
+extern void ix24();
+extern void ix25();
+extern void ix26();
+extern void ix28();
+extern void ix29();
+extern void ix2a();
+extern void ix2c();
+extern void ix2d();
+extern void ix2e();
 
 // high 3
-static void ix30();
-static void ix31();
-static void ix35();
-static void ix36();
-static void ix38();
-static void ix39();
-static void ix3d();
-static void ix3e();
+extern void ix30();
+extern void ix31();
+extern void ix35();
+extern void ix36();
+extern void ix38();
+extern void ix39();
+extern void ix3d();
+extern void ix3e();
 
 // high 4
-static void ix40();
-static void ix41();
-static void ix45();
-static void ix46();
-static void ix48();
-static void ix49();
-static void ix4a();
-static void ix4c();
-static void ix4d();
-static void ix4e();
+extern void ix40();
+extern void ix41();
+extern void ix45();
+extern void ix46();
+extern void ix48();
+extern void ix49();
+extern void ix4a();
+extern void ix4c();
+extern void ix4d();
+extern void ix4e();
 
 // high 5
-static void ix50();
-static void ix51();
-static void ix55();
-static void ix56();
-static void ix58();
-static void ix59();
-static void ix5d();
-static void ix5e();
+extern void ix50();
+extern void ix51();
+extern void ix55();
+extern void ix56();
+extern void ix58();
+extern void ix59();
+extern void ix5d();
+extern void ix5e();
 
 // high 6
-static void ix60();
-static void ix61();
-static void ix65();
-static void ix66();
-static void ix68();
-static void ix69();
-static void ix6a();
-static void ix6c();
-static void ix6d();
-static void ix6e();
+extern void ix60();
+extern void ix61();
+extern void ix65();
+extern void ix66();
+extern void ix68();
+extern void ix69();
+extern void ix6a();
+extern void ix6c();
+extern void ix6d();
+extern void ix6e();
 
 // high 7
-static void ix70();
-static void ix71();
-static void ix75();
-static void ix76();
-static void ix78();
-static void ix79();
-static void ix7d();
-static void ix7e();
+extern void ix70();
+extern void ix71();
+extern void ix75();
+extern void ix76();
+extern void ix78();
+extern void ix79();
+extern void ix7d();
+extern void ix7e();
 
 // high 8
-static void ix81();
-static void ix84();
-static void ix85();
-static void ix86();
-static void ix88();
-static void ix8a();
-static void ix8c();
-static void ix8d();
-static void ix8e();
+extern void ix81();
+extern void ix84();
+extern void ix85();
+extern void ix86();
+extern void ix88();
+extern void ix8a();
+extern void ix8c();
+extern void ix8d();
+extern void ix8e();
 
 // high 9
-static void ix90();
-static void ix91();
-static void ix94();
-static void ix95();
-static void ix96();
-static void ix98();
-static void ix99();
-static void ix9a();
-static void ix9d();
+extern void ix90();
+extern void ix91();
+extern void ix94();
+extern void ix95();
+extern void ix96();
+extern void ix98();
+extern void ix99();
+extern void ix9a();
+extern void ix9d();
 
 // high A
-static void ixa0();
-static void ixa1();
-static void ixa2();
-static void ixa4();
-static void ixa5();
-static void ixa6();
-static void ixa8();
-static void ixa9();
-static void ixaa();
-static void ixac();
-static void ixad();
-static void ixae();
+extern void ixa0();
+extern void ixa1();
+extern void ixa2();
+extern void ixa4();
+extern void ixa5();
+extern void ixa6();
+extern void ixa8();
+extern void ixa9();
+extern void ixaa();
+extern void ixac();
+extern void ixad();
+extern void ixae();
 
 // high B
-static void ixb0();
-static void ixb1();
-static void ixb4();
-static void ixb5();
-static void ixb6();
-static void ixb8();
-static void ixb9();
-static void ixba();
-static void ixbc();
-static void ixbd();
-static void ixbe();
+extern void ixb0();
+extern void ixb1();
+extern void ixb4();
+extern void ixb5();
+extern void ixb6();
+extern void ixb8();
+extern void ixb9();
+extern void ixba();
+extern void ixbc();
+extern void ixbd();
+extern void ixbe();
 
 // high C
-static void ixc0();
-static void ixc1();
-static void ixc4();
-static void ixc5();
-static void ixc6();
-static void ixc8();
-static void ixc9();
-static void ixca();
-static void ixcc();
-static void ixcd();
-static void ixce();
+extern void ixc0();
+extern void ixc1();
+extern void ixc4();
+extern void ixc5();
+extern void ixc6();
+extern void ixc8();
+extern void ixc9();
+extern void ixca();
+extern void ixcc();
+extern void ixcd();
+extern void ixce();
 
 // high D
-static void ixd0();
-static void ixd1();
-static void ixd5();
-static void ixd6();
-static void ixd8();
-static void ixd9();
-static void ixdd();
-static void ixde();
+extern void ixd0();
+extern void ixd1();
+extern void ixd5();
+extern void ixd6();
+extern void ixd8();
+extern void ixd9();
+extern void ixdd();
+extern void ixde();
 
 // high E
-static void ixe0();
-static void ixe1();
-static void ixe4();
-static void ixe5();
-static void ixe6();
-static void ixe8();
-static void ixe9();
-static void ixea();
-static void ixec();
-static void ixed();
-static void ixee();
+extern void ixe0();
+extern void ixe1();
+extern void ixe4();
+extern void ixe5();
+extern void ixe6();
+extern void ixe8();
+extern void ixe9();
+extern void ixea();
+extern void ixec();
+extern void ixed();
+extern void ixee();
 
 // high F
-static void ixf0();
-static void ixf1();
-static void ixf5();
-static void ixf6();
-static void ixf8();
-static void ixf9();
-static void ixfd();
-static void ixfe();
+extern void ixf0();
+extern void ixf1();
+extern void ixf5();
+extern void ixf6();
+extern void ixf8();
+extern void ixf9();
+extern void ixfd();
+extern void ixfe();
+
+// by name
+extern void ORA(int8_t op);
 
 #endif
