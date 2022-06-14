@@ -2,7 +2,7 @@
 6502 emulator
 
 ### usage:
-	```./6502emu [flags] <program>```
+	./6502emu [flags] <program>
 
 ### flags:
 	--help | prints usage message
