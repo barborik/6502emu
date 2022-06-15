@@ -1,7 +1,7 @@
 #include "includes.h"
 
 // by name
-void LDA(int8_t op)
+void LDA(uint8_t op)
 {
 	cpu.A = op;
 
@@ -13,7 +13,7 @@ void LDA(int8_t op)
 	cpu.SR |= cpu.A & 0b10000000;
 }
 
-void LDX(int8_t op)
+void LDX(uint8_t op)
 {
 	cpu.X = op;
 
@@ -25,7 +25,7 @@ void LDX(int8_t op)
 	cpu.SR |= cpu.A & 0b10000000;
 }
 
-void LDY(int8_t op)
+void LDY(uint8_t op)
 {
 	cpu.Y = op;
 
@@ -37,17 +37,17 @@ void LDY(int8_t op)
 	cpu.SR |= cpu.A & 0b10000000;
 }
 
-void STA(int16_t op)
+void STA(uint16_t op)
 {
 	cpu.mem[op] = cpu.A;
 }
 
-void STX(int16_t op)
+void STX(uint16_t op)
 {
 	cpu.mem[op] = cpu.X;
 }
 
-void STY(int16_t op)
+void STY(uint16_t op)
 {
 	cpu.mem[op] = cpu.Y;
 }
@@ -148,7 +148,7 @@ void PLP()
 	cpu.SP++;
 }
 
-void DEC(int16_t op)
+void DEC(uint16_t op)
 {
 	cpu.mem[op]--;
 
@@ -184,7 +184,7 @@ void DEY()
 	cpu.SR |= cpu.Y & 0b10000000;
 }
 
-void INC(int16_t op)
+void INC(uint16_t op)
 {
 	cpu.mem[op]++;
 
@@ -220,9 +220,29 @@ void INY()
 	cpu.SR |= cpu.Y & 0b10000000;
 }
 
-void ADC(int8_t op)
+void ADC(uint8_t op)
 {
-	if ((cpu.A = cpu.A + op + cpu.SR & 0b00000001) > 0xff)
+	if (((int)cpu.A + op + (cpu.SR & 0b00000001)) > 0xff)
+	{
+		cpu.A = 0xff;
+		cpu.SR |= 0b01000001;
+	}
+	else
+	{
+		cpu.A = (cpu.A + op + (cpu.SR & 0b00000001));
+	}
+
+	if (!cpu.A)
+	{
+		cpu.SR |= 0b00000010;
+	}
+
+	cpu.SR |= cpu.A & 0b10000000;
+}
+
+void SBC(uint8_t op)
+{
+	if ((cpu.A = cpu.A - op - !(cpu.SR & 0b00000001)) < 0)
 	{
 		cpu.SR |= 0b01000001;
 	}
@@ -235,22 +255,7 @@ void ADC(int8_t op)
 	cpu.SR |= cpu.A & 0b10000000;
 }
 
-void SBC(int8_t op)
-{
-	if ((cpu.A = cpu.A - op - !(cpu.SR & 0b00000001)) > 0xff)
-	{
-		cpu.SR |= 0b01000001;
-	}
-
-	if (!cpu.A)
-	{
-		cpu.SR |= 0b00000010;
-	}
-
-	cpu.SR |= cpu.A & 0b10000000;
-}
-
-void AND(int8_t op)
+void AND(uint8_t op)
 {
 	cpu.A &= op;
 
@@ -262,7 +267,7 @@ void AND(int8_t op)
 	cpu.SR |= cpu.A & 0b10000000;
 }
 
-void EOR(int8_t op)
+void EOR(uint8_t op)
 {
 	cpu.A ^= op;
 

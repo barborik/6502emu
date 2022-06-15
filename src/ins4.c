@@ -27,15 +27,15 @@ void ix8a()
 }
 void ix8c()
 {
-	STY(((int16_t*)cpu.mem)[cpu.PC + 1]);
+	STY(*(uint16_t*)(&cpu.mem[cpu.PC + 1]));
 }
 void ix8d()
 {
-	STA(((int16_t*)cpu.mem)[cpu.PC + 1]);
+	STA(*(uint16_t*)(&cpu.mem[cpu.PC + 1]));
 }
 void ix8e()
 {
-	STX(((int16_t*)cpu.mem)[cpu.PC + 1]);
+	STX(*(uint16_t*)(&cpu.mem[cpu.PC + 1]));
 }
 
 // high 9

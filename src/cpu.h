@@ -1,21 +1,23 @@
 #ifndef __CPU
 #define __CPU
 
-static struct
+typedef struct
 {
 	// general purpose registers
-	int8_t A; // accumulator
-	int8_t X; // X register
-	int8_t Y; // Y register
+	uint8_t A; // accumulator
+	uint8_t X; // X register
+	uint8_t Y; // Y register
 	// special registers
-	int8_t SP; // stack pointer
-	int8_t SR; // status register (flags)
+	uint8_t SP; // stack pointer
+	uint8_t SR; // status register (flags)
 	// bit    7         |   6        | 5       |  4      |  3        |  2          |  1     |  0
 	// flag  (N)egative | o(V)erflow | ignored | (B)reak | (D)ecimal | (I)nterrupt | (Z)ero | (C)arry
-	int16_t PC; // program counter
+	uint16_t PC; // program counter
 	// system memory
-	int8_t* mem;
-} cpu;
+	uint8_t* mem;
+} cpu_t;
+
+extern cpu_t cpu;
 
 void cpu_init();
 void cpu_load();
@@ -44,6 +46,6 @@ typedef struct
 	void (*exec)(void);
 } ins_t;
 
-extern ins_t inset[];
+extern const ins_t inset[];
 
 #endif

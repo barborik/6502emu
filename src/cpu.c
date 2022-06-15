@@ -1,5 +1,7 @@
 #include "includes.h"
 
+cpu_t cpu;
+
 void cpu_init()
 {
 	cpu.mem = malloc(64 * 1024); // 64 KiB
@@ -26,6 +28,7 @@ void cpu_load()
 	{
 		cpu.mem[i] = (int8_t)c;
 	}
+	fclose(file);
 }
 
 // opcode and addressing mode reference:
@@ -34,6 +37,8 @@ void cpu_exec()
 {
 	while (1)
 	{
+		printf("%p\n", &(cpu.mem[cpu.PC]));
+
 		ins_t ins = inset[cpu.mem[cpu.PC]];
 		ins.exec();
 

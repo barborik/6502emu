@@ -1,7 +1,7 @@
 #include "includes.h"
 
 // illegal instructions included for ease of searching (index = opcode)
-ins_t inset[] = {
+const ins_t inset[] = {
 	// high 0
 	{
 		.addrmode = AM_IMPL,

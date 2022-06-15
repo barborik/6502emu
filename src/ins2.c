@@ -1,6 +1,6 @@
 #include "includes.h"
 
-void ORA(int8_t op)
+void ORA(uint8_t op)
 {
 	cpu.A |= op;
 
@@ -12,7 +12,7 @@ void ORA(int8_t op)
 	cpu.SR |= cpu.A & 0b10000000;
 }
 
-void ASL(int8_t op)
+void ASL(uint8_t op)
 {
 	if (op > 0b100000000)
 	{
@@ -29,7 +29,7 @@ void ASL(int8_t op)
 	cpu.SR |= op & 0b10000000;
 }
 
-void LSR(int8_t op)
+void LSR(uint8_t op)
 {
 	if (op > 0b100000000)
 	{
@@ -46,12 +46,12 @@ void LSR(int8_t op)
 	cpu.SR |= 0b10000000;
 }
 
-void ROL(int8_t op)
+void ROL(uint8_t op)
 {
 	ASL(op);
 }
 
-void ROR(int8_t op)
+void ROR(uint8_t op)
 {
 	LSR(op);
 }
@@ -91,7 +91,7 @@ void SEI()
 	cpu.SR |= 0b00000100;
 }
 
-void CMP(int8_t op)
+void CMP(uint8_t op)
 {
 	if (cpu.A < op)
 	{
@@ -111,7 +111,7 @@ void CMP(int8_t op)
 	}
 }
 
-void CPX(int8_t op)
+void CPX(uint8_t op)
 {
 	if (cpu.X < op)
 	{
@@ -131,7 +131,7 @@ void CPX(int8_t op)
 	}
 }
 
-void CPY(int8_t op)
+void CPY(uint8_t op)
 {
 	if (cpu.Y < op)
 	{
@@ -151,7 +151,7 @@ void CPY(int8_t op)
 	}
 }
 
-void BCC(int8_t op)
+void BCC(uint8_t op)
 {
 	if (!(cpu.SR & 0b00000001))
 	{
@@ -159,7 +159,7 @@ void BCC(int8_t op)
 	}
 }
 
-void BCS(int8_t op)
+void BCS(uint8_t op)
 {
 	if (cpu.SR & 0b00000001)
 	{
@@ -167,7 +167,7 @@ void BCS(int8_t op)
 	}
 }
 
-void BEQ(int8_t op)
+void BEQ(uint8_t op)
 {
 	if (cpu.SR & 0b00000010)
 	{
@@ -175,7 +175,7 @@ void BEQ(int8_t op)
 	}
 }
 
-void BMI(int8_t op)
+void BMI(uint8_t op)
 {
 	if (cpu.SR & 0b10000000)
 	{
@@ -183,7 +183,7 @@ void BMI(int8_t op)
 	}
 }
 
-void BNE(int8_t op)
+void BNE(uint8_t op)
 {
 	if (!(cpu.SR & 0b00000010))
 	{
@@ -191,7 +191,7 @@ void BNE(int8_t op)
 	}
 }
 
-void BPL(int8_t op)
+void BPL(uint8_t op)
 {
 	if (!(cpu.SR & 0b10000000))
 	{
@@ -199,7 +199,7 @@ void BPL(int8_t op)
 	}
 }
 
-void BVC(int8_t op)
+void BVC(uint8_t op)
 {
 	if (!(cpu.SR & 0b01000000))
 	{
@@ -207,7 +207,7 @@ void BVC(int8_t op)
 	}
 }
 
-void BVS(int8_t op)
+void BVS(uint8_t op)
 {
 	if (cpu.SR & 0b10000000)
 	{
@@ -215,12 +215,12 @@ void BVS(int8_t op)
 	}
 }
 
-void JMP(int16_t op)
+void JMP(uint16_t op)
 {
 	cpu.PC = op;
 }
 
-void JSR(int16_t op)
+void JSR(uint16_t op)
 {
 	cpu.SP -= 2;
 	cpu.mem[0x0100 + cpu.SP] = cpu.PC;
@@ -250,7 +250,7 @@ void RTI()
 	cpu.PC = cpu.mem[0x0100 + cpu.SP];
 }
 
-void BIT(int8_t op)
+void BIT(uint8_t op)
 {
 	cpu.A &= op;
 

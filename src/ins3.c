@@ -75,7 +75,7 @@ void ix1e()
 // high 2
 void ix20()
 {
-	JSR(((int16_t*)cpu.mem)[cpu.PC + 1]);
+	JSR(cpu.mem[((int16_t*)cpu.mem)[cpu.PC + 1]]);
 }
 void ix21()
 {
@@ -183,7 +183,7 @@ void ix4a()
 }
 void ix4c()
 {
-	JMP(((int16_t*)cpu.mem)[cpu.PC + 1]);
+	JMP(*(uint16_t*)(&cpu.mem[cpu.PC + 1]));
 }
 void ix4d()
 {
@@ -259,7 +259,7 @@ void ix6a()
 }
 void ix6c()
 {
-	JMP(cpu.mem[((int16_t*)cpu.mem)[cpu.PC + 1]]);
+	JMP(*(uint16_t*)(cpu.mem[*(uint16_t*)(&cpu.mem[cpu.PC + 1])]));
 }
 void ix6d()
 {

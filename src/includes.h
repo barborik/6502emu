@@ -8,8 +8,8 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "ins.h"
 #include "cpu.h"
+#include "ins.h"
 #include "defs.h"
 
 #endif
